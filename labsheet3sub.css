@@ -1,0 +1,136 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background-color: #ff914d;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+}
+header h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+header p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+nav ul {
+    list-style: none;
+}
+nav ul li {
+    display: inline-block;
+    margin: 0 12px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+nav ul li a:hover {
+    background-color: white;
+    color: #ff914d;
+}
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.welcome-section {
+    background: linear-gradient(rgba(255, 145, 77, 0.8), rgba(255, 190, 120, 0.8)),
+                url("");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.welcome-content {
+    max-width: 700px;
+    margin: auto;
+    animation: fadeInUp 1.5s ease;
+}
+.welcome-content h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+.welcome-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+table {
+    width: 85%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+th,
+td {
+    border: 1px solid #ffd0a6;
+    padding: 15px;
+    text-align: center;
+}
+th {
+    background-color: #ff914d;
+    color: white;
+}
+tr {
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+tbody tr:hover {
+    background-color: #ffe0c2;
+    transform: scale(1.01);
+}
+form {
+    width: 60%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #ff914d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #e67e22;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

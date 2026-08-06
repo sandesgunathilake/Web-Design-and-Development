@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <h2>Find the Square of a Number</h2>
+    <p id="result"></p>
+
+    <script>
+        function findSquare(number) {
+            return number * number;
+        }
+
+        let num = prompt("Enter a number:");
+
+        let square = findSquare(Number(num));
+         document.getElementById("result").innerHTML =
+
+        "The square of " + num + " is " + square;
+    </script>
+    </body>
+</html>

@@ -1,0 +1,254 @@
+<html>
+<head>
+    <title>Job Application Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f2f2f2;
+        }
+
+        .container{
+            width:600px;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select,textarea{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:10px;
+            border:1px solid gray;
+            border-radius:5px;
+            box-sizing:border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"]{
+            width:auto;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:18px;
+        }
+
+        button:hover{
+            background:darkgreen;
+        }
+
+        .error{
+            color:red;
+            font-size:14px;
+            margin-top:-8px;
+            margin-bottom:10px;
+        }
+
+        .success{
+            color:green;
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Job Application Form</h1>
+
+<form id="jobForm">
+
+<label>Full Name</label>
+<input type="text" id="name">
+<div class="error" id="nameError"></div>
+
+<label>Email Address</label>
+<input type="email" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Age</label>
+<input type="number" id="age">
+<div class="error" id="ageError"></div>
+
+<label>Phone Number</label>
+<input type="text" id="phone">
+<div class="error" id="phoneError"></div>
+
+<label>Gender</label><br>
+
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<div class="error" id="genderError"></div>
+
+<label>Job Position</label>
+
+<select id="job">
+<option value="">Select Job Position</option>
+<option>Web Developer</option>
+<option>Graphic Designer</option>
+<option>Software Engineer</option>
+<option>Database Administrator</option>
+</select>
+
+<div class="error" id="jobError"></div>
+
+<label>Years of Experience</label>
+
+<input type="number" id="experience">
+
+<div class="error" id="experienceError"></div>
+
+<label>Upload Resume (PDF only)</label>
+
+<input type="file" id="resume" accept=".pdf">
+
+<div class="error" id="resumeError"></div>
+
+<label>Skills</label><br>
+
+<input type="checkbox" name="skill"> HTML
+<input type="checkbox" name="skill"> CSS
+<input type="checkbox" name="skill"> JavaScript
+<input type="checkbox" name="skill"> PHP
+
+<div class="error" id="skillError"></div>
+
+<button type="submit">Submit</button>
+
+<div class="success" id="success"></div>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("jobForm").addEventListener("submit",function(event){
+
+event.preventDefault();
+
+document.getElementById("nameError").innerHTML="";
+document.getElementById("emailError").innerHTML="";
+document.getElementById("ageError").innerHTML="";
+document.getElementById("phoneError").innerHTML="";
+document.getElementById("genderError").innerHTML="";
+document.getElementById("jobError").innerHTML="";
+document.getElementById("experienceError").innerHTML="";
+document.getElementById("resumeError").innerHTML="";
+document.getElementById("skillError").innerHTML="";
+document.getElementById("success").innerHTML="";
+
+let valid=true;
+
+let name=document.getElementById("name").value.trim();
+
+let email=document.getElementById("email").value.trim();
+
+let age=document.getElementById("age").value;
+
+let phone=document.getElementById("phone").value.trim();
+
+let job=document.getElementById("job").value;
+
+let experience=document.getElementById("experience").value;
+
+let resume=document.getElementById("resume").value;
+
+let gender=document.querySelector('input[name="gender"]:checked');
+
+let skills=document.querySelectorAll('input[name="skill"]:checked');
+
+if(name==""){
+document.getElementById("nameError").innerHTML="Full Name is required.";
+valid=false;
+}
+else if(!/^[A-Za-z ]+$/.test(name)){
+document.getElementById("nameError").innerHTML="Letters and spaces only.";
+valid=false;
+}
+
+if(email==""){
+document.getElementById("emailError").innerHTML="Email is required.";
+valid=false;
+}
+
+if(age==""){
+document.getElementById("ageError").innerHTML="Age is required.";
+valid=false;
+}
+else if(age<18 || age>60){
+document.getElementById("ageError").innerHTML="Age must be between 18 and 60.";
+valid=false;
+}
+
+if(!/^[0-9]{10}$/.test(phone)){
+document.getElementById("phoneError").innerHTML="Phone number must contain exactly 10 digits.";
+valid=false;
+}
+
+if(gender==null){
+document.getElementById("genderError").innerHTML="Please select a gender.";
+valid=false;
+}
+
+if(job==""){
+document.getElementById("jobError").innerHTML="Please select a job position.";
+valid=false;
+}
+
+if(experience==""){
+document.getElementById("experienceError").innerHTML="Experience is required.";
+valid=false;
+}
+else if(experience<0){
+document.getElementById("experienceError").innerHTML="Experience cannot be negative.";
+valid=false;
+}
+
+if(resume==""){
+document.getElementById("resumeError").innerHTML="Please upload your resume.";
+valid=false;
+}
+else if(!resume.toLowerCase().endsWith(".pdf")){
+document.getElementById("resumeError").innerHTML="Only PDF files are allowed.";
+valid=false;
+}
+
+if(skills.length==0){
+document.getElementById("skillError").innerHTML="Select at least one skill.";
+valid=false;
+}
+
+if(valid){
+document.getElementById("success").innerHTML="Application Submitted Successfully!";
+}
+
+});
+
+</script>
+
+</body>
+</html>
